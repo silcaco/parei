@@ -1343,18 +1343,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const lowerQuery = userQuery.toLowerCase();
 
         // 1. Prioriza Respostas Estáticas e Específicas do Aplicativo (RÁPIDO)
-        if (lowerQuery.includes('premium') || lowerQuery.includes('pagar')) {
-            return "O plano **Premium** está disponível por apenas R$9,90/mês e desbloqueia recursos como a exportação de tarefas para PDF e temas exclusivos de interface. Você pode assinar na seção 'Premium'.";
-        } else if (lowerQuery.includes('tarefas') || lowerQuery.includes('lista')) {
-            return "Para criar uma nova tarefa, vá para a aba 'Tarefas', clique no botão de adição (+) e preencha os detalhes. Você pode definir prazo, prioridade e marcá-la como concluída.";
-        } else if (lowerQuery.includes('calendário') || lowerQuery.includes('agenda')) {
-            return "O **Calendário** mostra todos os seus compromissos e tarefas com data limite. Feriados nacionais são automaticamente destacados em amarelo para ajudar no seu planejamento!";
-        } else if (lowerQuery.includes('conquistas')) {
-            return "As **Conquistas** são um sistema de gamificação para recompensar seu progresso na organização, como '100 tarefas concluídas'. Verifique a aba 'Conquistas' para ver o que você já desbloqueado!";
-        } else if (lowerQuery.includes('olá') || lowerQuery.includes('oi') || lowerQuery.includes('tudo bem')) {
-            return "Olá! Eu sou a Assistente da Agenda Online. Estou pronta para tirar suas dúvidas sobre o aplicativo ou responder a perguntas gerais. O que você gostaria de saber hoje?";
-        }
-        
+if (lowerQuery.includes('premium') || lowerQuery.includes('pagar')) {
+    return "O plano **Premium** está disponível por apenas R$9,90/mês e desbloqueia recursos como a exportação de tarefas para PDF e temas exclusivos de interface. Você pode assinar na seção 'Premium'.";
+} else if (lowerQuery.includes('tarefas') || lowerQuery.includes('lista')) {
+    return "Para criar uma nova tarefa, vá para a aba 'Tarefas', clique no botão de adição (+) e preencha os detalhes. Você pode definir prazo, prioridade e marcá-la como concluída.";
+} else if (lowerQuery.includes('calendário') || lowerQuery.includes('agenda')) {
+    return "O **Calendário** mostra todos os seus compromissos e tarefas com data limite. Feriados nacionais são automaticamente destacados em amarelo para ajudar no seu planejamento!";
+} else if (lowerQuery.includes('conquistas')) {
+    return "As **Conquistas** são um sistema de gamificação para recompensar seu progresso na organização, como '100 tarefas concluídas'. Verifique a aba 'Conquistas' para ver o que você já desbloqueou!";
+} else if (lowerQuery.includes('olá') || lowerQuery.includes('oi') || lowerQuery.includes('tudo bem')) {
+    return "Olá! Eu sou a Assistente da Agenda Online. Estou pronta para tirar suas dúvidas sobre o aplicativo ou responder a perguntas gerais. O que você gostaria de saber hoje?";
+} else if (lowerQuery.includes('notificação') || lowerQuery.includes('lembrete')) {
+    return "Você pode ativar **notificações e lembretes** nas configurações da sua conta. Escolha se deseja receber alertas por e-mail, som ou notificação do navegador antes do início de cada compromisso.";
+} else if (lowerQuery.includes('sincronizar') || lowerQuery.includes('google') || lowerQuery.includes('outlook')) {
+    return "Nosso sistema permite **sincronização com Google Calendar e Outlook**! Basta acessar as configurações de 'Integrações' e conectar sua conta para importar e exportar eventos automaticamente.";
+} else if (lowerQuery.includes('tema') || lowerQuery.includes('modo escuro') || lowerQuery.includes('personalizar')) {
+    return "Você pode **personalizar o visual** da Agenda Online acessando as Configurações → 'Aparência'. Lá é possível ativar o modo escuro e escolher entre vários temas exclusivos (alguns são Premium).";
+} else if (lowerQuery.includes('conta') || lowerQuery.includes('perfil') || lowerQuery.includes('senha')) {
+    return "Para gerenciar sua **conta**, vá até o menu do perfil. Lá você pode alterar sua senha, atualizar seu e-mail, ativar autenticação em dois fatores e excluir sua conta, se desejar.";
+} else if (lowerQuery.includes('segurança') || lowerQuery.includes('privacidade') || lowerQuery.includes('dados')) {
+    return "Levamos sua **segurança e privacidade** a sério. Todos os dados são criptografados e armazenados em servidores seguros. Você pode consultar nossa política de privacidade na aba 'Sobre'.";
+} else if (lowerQuery.includes('suporte') || lowerQuery.includes('ajuda') || lowerQuery.includes('problema')) {
+    return "Se você estiver com algum problema, acesse a aba 'Ajuda' → 'Suporte'. Nossa equipe responde normalmente em até 24 horas. Também há um FAQ com respostas rápidas para dúvidas comuns.";
+} else if (lowerQuery.includes('backup') || lowerQuery.includes('restaurar') || lowerQuery.includes('exportar')) {
+    return "Você pode **exportar suas tarefas e compromissos** em PDF, CSV ou JSON. O backup é feito automaticamente uma vez por dia para evitar perda de dados.";
+} else if (lowerQuery.includes('tutorial') || lowerQuery.includes('como usar') || lowerQuery.includes('guia')) {
+    return "Se for sua primeira vez usando o app, acesse o **Tutorial Interativo** na tela inicial. Ele mostra passo a passo como criar tarefas, configurar lembretes e usar o calendário.";
+}
         // 2. Se não for uma pergunta estática, chama o servidor de IA
         try {
             // ATENÇÃO: /api/gemini-chat deve ser um endpoint no seu servidor
@@ -1385,4 +1400,5 @@ document.addEventListener('DOMContentLoaded', () => {
             return `Entendi que você perguntou sobre "${userQuery}". Desculpe, mas não consegui me conectar ao serviço de Inteligência Artificial para responder a essa questão. Por enquanto, estou focada em te ajudar com as funcionalidades da **Agenda Online** (Tarefas, Premium, Calendário).`;
         }
     }
+
 });
